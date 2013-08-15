@@ -1,6 +1,6 @@
 # MultiPass
 
-A tiny module for making searching through a multiselect dropdown boxes really easy.
+A tiny module for making searching through multiselect dropdown boxes really easy.
 
 # How to use it
 Make sure you have jQuery loaded and write the following markup.
