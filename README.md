@@ -1,4 +1,4 @@
-# Multipass
+# MultiPass
 
 A tiny module for making searching through a multiselect dropdown boxes really easy.
 
