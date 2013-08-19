@@ -36,3 +36,6 @@ var json = [{"value":"Bruce Willis"},
 
 $(document).ready(MultiPass.init(json));
 ```
+
+# Demo
+Demo on [CodePen](http://codepen.io/philipbrown/pen/HEDgk).
