@@ -55,9 +55,12 @@ var MultiPass = (function () {
     selectOption: function(select, option) {
       $select = $(select);
       option.selected = true;
-      select.selectedIndex = option.index;
-      var scrollTop = $select.scrollTop();
-      $select.scrollTop(scrollTop);    
+      select.selectedIndex = option.index;       
+      var scrollHeight = $select[0].scrollHeight;      
+      var noOfitems = $select.children().length;        
+      var rowHeight = Math.round(((scrollHeight) / noOfitems));
+      var position = rowHeight * option.index;
+      $select.scrollTop(position);   
     }
 
   };
