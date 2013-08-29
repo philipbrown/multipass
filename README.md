@@ -2,6 +2,8 @@
 
 A tiny module for making searching through multiselect dropdown boxes really easy.
 
+MultiPass will search the list as you type and set the nearest match as the top item in the box.
+
 # How to use it
 Make sure you have jQuery loaded.
 
