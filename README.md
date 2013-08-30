@@ -65,10 +65,7 @@ And you don't need to use json for your dropdown list:
 </form>
 ```
 ```javascript
-$(document).ready(MultiPass.init({
-  multiselect: '.my-select-box',
-  inputBox: '.my-input-box'
-}));
+$(document).ready(MultiPass.init());
 ```
 
 # Demo
