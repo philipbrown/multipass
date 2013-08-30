@@ -1,6 +1,6 @@
 # MultiPass
 
-A tiny module for making searching through multiselect dropdown boxes really easy.
+A tiny Javascript module for making searching through multiselect dropdown boxes really easy.
 
 MultiPass will search the list as you type and set the nearest match as the top item in the box.
 
@@ -18,6 +18,7 @@ Write the following markup.
 
 Next, simply pass your json to the init method on the MultiPass module.
 ```javascript
+<script>
 var json = [{"value":"Bruce Willis"},
             {"value":"Milla Jovovich"},
             {"value":"Gary Oldman"},
@@ -39,6 +40,7 @@ var json = [{"value":"Bruce Willis"},
             {"value":"Maïwenn Le Besco"}];
 
 $(document).ready(MultiPass.init(json));
+</script>
 ```
 
 # Demo
