@@ -38,7 +38,18 @@ var json = ["Bruce Willis",
             "Al Matthews",
             "Maïwenn Le Besco"];
 
-$(document).ready(MultiPass.init(json));
+$(document).ready(MultiPass.init({
+  json: json,
+}));
+```
+
+You can also overwrite the default class names:
+```javascript
+$(document).ready(MultiPass.init({
+  json: json,
+  multiselect: '.my-select-box',
+  inputBox: '.my-input-box'
+}));
 ```
 
 # Demo
