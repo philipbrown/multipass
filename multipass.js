@@ -112,9 +112,9 @@ var MultiPass = (function () {
       // Get the scrollHeight property
       var scrollHeight = $select[0].scrollHeight;
       // Count the number of items in the list
-      var noOfitems = $select.children().length;
+      var noOfItems = $select.children().length;
       // Find the row height of each item
-      var rowHeight = Math.round(((scrollHeight) / noOfitems));
+      var rowHeight = Math.round((scrollHeight / noOfItems));
       // Find the position of the selected item
       var position = rowHeight * option.index;
       // Set the position
