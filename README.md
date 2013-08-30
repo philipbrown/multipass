@@ -18,25 +18,25 @@ Write the following markup.
 
 Next, simply pass your json to the init method on the MultiPass module.
 ```javascript
-var json = [{"value":"Bruce Willis"},
-            {"value":"Milla Jovovich"},
-            {"value":"Gary Oldman"},
-            {"value":"Ian Holm"},
-            {"value":"Chris Tucker"},
-            {"value":"Charlie Creed-Miles"},
-            {"value":"Brion James"},
-            {"value":"Tricky"},
-            {"value":"Clifton Lloyd Bryan"},
-            {"value":"Tom Lister, Jr."},
-            {"value":"Christopher Fairbank"},
-            {"value":"Lee Evans"},
-            {"value":"John Bluthal"},
-            {"value":"Luke Perry"},
-            {"value":"John Bennett"},
-            {"value":"Kim Chan"},
-            {"value":"John Neville"},
-            {"value":"Al Matthews"},
-            {"value":"Maïwenn Le Besco"}];
+var json = ["Bruce Willis",
+            "Milla Jovovich",
+            "Gary Oldman",
+            "Ian Holm",
+            "Chris Tucker",
+            "Charlie Creed-Miles",
+            "Brion James",
+            "Tricky",
+            "Clifton Lloyd Bryan",
+            "Tom Lister, Jr.",
+            "Christopher Fairbank",
+            "Lee Evans",
+            "John Bluthal",
+            "Luke Perry",
+            "John Bennett",
+            "Kim Chan",
+            "John Neville",
+            "Al Matthews",
+            "Maïwenn Le Besco"];
 
 $(document).ready(MultiPass.init(json));
 ```
