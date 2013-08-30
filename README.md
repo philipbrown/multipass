@@ -8,7 +8,6 @@ MultiPass will search the list as you type and set the nearest match as the top 
 Make sure you have jQuery loaded.
 
 Write the following markup.
-
 ```html
 <form>
   <input class="search">
@@ -47,6 +46,26 @@ You can also overwrite the default class names:
 ```javascript
 $(document).ready(MultiPass.init({
   json: json,
+  multiselect: '.my-select-box',
+  inputBox: '.my-input-box'
+}));
+```
+
+And you don't need to use json for your dropdown list:
+```html
+<form>
+  <input class="search">
+  <select class="multipass" multiple>
+    <option value="Homer">Homer</option>
+    <option value="Marge">Marge</option>
+    <option value="Bart">Bart</option>
+    <option value="Lisa">Lisa</option>
+    <option value="Maggie">Maggie</option>
+  </select>
+</form>
+```
+```javascript
+$(document).ready(MultiPass.init({
   multiselect: '.my-select-box',
   inputBox: '.my-input-box'
 }));
