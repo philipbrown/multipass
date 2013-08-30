@@ -19,49 +19,107 @@
 
 var MultiPass = (function () {
 
+  /* Settings alias */
   var s;
 
   return {
+    /* Default settings */
     settings: {
-      select: $(".multipass"),
+      multiselect: '.multipass',
+      inputBox: '.search',
+      json: null,
+      options: null,
     },
 
-    init: function(json) {
+    /* Kick things off */
+    init: function(options) {
+
+      // Settings
       s = this.settings;
-      s.json = json;
-      this.setOptions(s.json);
-      this.update(s.json);
+
+      // Set options
+      for(var prop in options) {
+        if(options.hasOwnProperty(prop)){
+          s[prop] = options[prop];
+        }
+      }
+      
+      // Cache selectors
+      s.select = $(s.multiselect);
+      s.search = $(s.inputBox);
+      
+      // Set JSON options
+      if(s.json){
+        // Set HTML options
+        this.setOptions(s.json);
+        // Set Options
+        s.options = s.json;
+      }else{
+        // Create array from static options
+        s.options = this.getOptions();
+      }
+      
+      // Listen for updates
+      this.update(s.options);
     },
 
+    /* Set the HTML options */
     setOptions: function(json) {
-      $.each(json, function(i, obj) {
-        s.select.append('<option value="' + obj.value + '">' + obj.value + '</option>');
+      // Cycle through json
+      $.each(json, function(i, v) {
+        // Append option
+        s.select.append('<option value="' + v + '">' + v + '</option>');
       });
     },
     
-    update: function(json) {
+    /* Get the HTML options as an array */
+    getOptions: function() {
+      // Map the options to an array
+      return $('option', s.multiselect).map(function() {
+        // Set the text as the value
+        return $(this).text();
+      }).get();
+    },
+    
+    /* Update as the user types */
+    update: function(options) {
+      // Alias
       var self = this;
-      $('.search').keyup(function() {
+      // Listen for keyups
+      s.search.keyup(function() {
+        // Grab the input
         var input = $(this).val();
-        $.each(json, function(i, v) {
-          if (v.value.search(new RegExp("\^" + input + "", "i")) != -1) {
-            self.selectOption($('select.multipass')[0], $('.multipass option[value="'+ v.value +'"]')[0]);
+        // Cycle through the options
+        $.each(options, function(i, v) {
+          // Use a regex to find the closest match
+          if (v.search(new RegExp("\^" + input + "", "i")) != -1) {
+            // Pass the select box and the option
+            self.selectOption($('select' + s.multiselect)[0], $(s.multiselect + ' option[value="'+ v +'"]')[0]);
             return false;
           }
         });
       });
-    },
+    },     
     
+    /* Set the option */
     selectOption: function(select, option) {
+      // Get Select
       $select = $(select);
+      // Set selected
       option.selected = true;
-      select.selectedIndex = option.index;       
-      var scrollHeight = $select[0].scrollHeight;      
-      var noOfitems = $select.children().length;        
+      // Set the selected index
+      select.selectedIndex = option.index;
+      // Get the scrollHeight property
+      var scrollHeight = $select[0].scrollHeight;
+      // Count the number of items in the list
+      var noOfitems = $select.children().length;
+      // Find the row height of each item
       var rowHeight = Math.round(((scrollHeight) / noOfitems));
+      // Find the position of the selected item
       var position = rowHeight * option.index;
-      $select.scrollTop(position);   
+      // Set the position
+      $select.scrollTop(position);
     }
-
   };
 })();
+
